@@ -1,6 +1,6 @@
 # opencode-plugin-compaction-prompt
 
-Customize OpenCode's compaction prompt to decide which messages are prioritized and which are discarded in the next session.
+Customize OpenCode's compaction prompt - decide which messages are prioritized and which are discarded in the next session.
 
 [GitHub](https://github.com/bendtherules/opencode-plugin-compaction-prompt) · [npm](https://www.npmjs.com/package/opencode-plugin-compaction-prompt)
 
