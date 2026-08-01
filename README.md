@@ -63,10 +63,13 @@ bun test
 bun run typecheck
 bun run build
 bun run pack:check
+git tag v0.1.2
+git push origin v0.1.2
+gh release create v0.1.2 --generate-notes
 npm publish
 ```
 
-Update the version in `package.json` before each release. `npm publish` rebuilds `dist/` automatically.
+Update the version in `package.json`, changelog, and the tag before each release. `npm publish` rebuilds `dist/` automatically.
 
 ## Compatibility
 
