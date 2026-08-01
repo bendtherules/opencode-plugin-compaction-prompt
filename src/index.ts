@@ -13,7 +13,10 @@ export type CompactionOptions = PluginOptions & {
 
 const defaultMemoryFile = ".opencode/compaction.md";
 const defaultPrompt = "";
-const defaultCompletionMarker = "Custom compaction request honored.";
+const defaultCompletionMarker =
+  "opencode-plugin-compaction-prompt: Custom compaction done.";
+const skippedCompactionMarker =
+  "opencode-plugin-compaction-prompt: No custom compaction applied.";
 
 function asString(value: unknown): string | undefined {
   if (typeof value !== "string") {
@@ -115,6 +118,12 @@ export const CompactionPromptPlugin: Plugin = async (
       const instructions = buildInstructions(prompt, completionMarker, memory);
 
       if (!instructions) {
+        if (mode === "replace") {
+          output.prompt = skippedCompactionMarker;
+        } else {
+          output.context.push(skippedCompactionMarker);
+        }
+
         return;
       }
 

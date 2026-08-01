@@ -55,7 +55,9 @@ describe("CompactionPromptPlugin", () => {
     );
 
     expect(output.context[0]).toContain("Keep the active hypothesis.");
-    expect(output.context[0]).toContain("Custom compaction request honored.");
+    expect(output.context[0]).toContain(
+      "opencode-plugin-compaction-prompt: Custom compaction done.",
+    );
   });
 
   test("combines custom instructions with a configured memory file", async () => {
@@ -114,10 +116,12 @@ describe("CompactionPromptPlugin", () => {
     );
 
     expect(context.logs).toHaveLength(0);
-    expect(output.context).toHaveLength(0);
+    expect(output.context).toEqual([
+      "opencode-plugin-compaction-prompt: No custom compaction applied.",
+    ]);
   });
 
-  test("does not modify compaction when no instructions are provided", async () => {
+  test("adds a skipped marker when no instructions are provided", async () => {
     const context = await createContext();
     const hooks = await CompactionPromptPlugin(context as never);
     const output: { context: string[]; prompt?: string } = {
@@ -129,7 +133,10 @@ describe("CompactionPromptPlugin", () => {
       output,
     );
 
-    expect(output.context).toEqual(["Existing context"]);
+    expect(output.context).toEqual([
+      "Existing context",
+      "opencode-plugin-compaction-prompt: No custom compaction applied.",
+    ]);
     expect(output.prompt).toBeUndefined();
   });
 
@@ -147,6 +154,8 @@ describe("CompactionPromptPlugin", () => {
     );
 
     expect(context.logs).toHaveLength(1);
-    expect(output.context).toHaveLength(0);
+    expect(output.context).toEqual([
+      "opencode-plugin-compaction-prompt: No custom compaction applied.",
+    ]);
   });
 });

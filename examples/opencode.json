@@ -7,7 +7,7 @@
         "memoryFile": ".opencode/compaction.md",
         "mode": "append",
         "prompt": "<Example prompt for compaction>",
-        "completionMarker": "Custom compaction request honored."
+        "completionMarker": "opencode-plugin-compaction-prompt: Custom compaction done."
       }
     ]
   ]

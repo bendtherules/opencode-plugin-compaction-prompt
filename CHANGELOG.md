@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Add explicit markers for applied and skipped custom compaction instructions.
+
 ## 0.2.1
 
 - Add the server entrypoint expected by OpenCode's npm plugin loader.

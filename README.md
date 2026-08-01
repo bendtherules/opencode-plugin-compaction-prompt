@@ -27,7 +27,7 @@ You can also add it manually to your global `opencode.jsonc`:
       {
         "memoryFile": ".opencode/compaction.md",
         "mode": "append",
-        "completionMarker": "Custom compaction request honored."
+        "completionMarker": "opencode-plugin-compaction-prompt: Custom compaction done."
       }
     ]
   ]
@@ -38,14 +38,16 @@ Create `.opencode/compaction.md` in the project when you have project-specific c
 
 ## Options
 
-| Option             | Default                              | Description                                                                                                |
-| ------------------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| `memoryFile`       | `.opencode/compaction.md`            | File resolved relative to the active worktree.                                                             |
-| `mode`             | `append`                             | Append instructions to OpenCode's default prompt, or use `replace` to provide a complete prompt.           |
-| `prompt`           | "" (empty)                           | Additional instructions used together with `memoryFile`; both are included in the compaction instructions. |
-| `completionMarker` | `Custom compaction request honored.` | Exact text the model is asked to append at the end of the summary.                                         |
+| Option             | Default                                                      | Description                                                                                                |
+| ------------------ | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `memoryFile`       | `.opencode/compaction.md`                                    | File resolved relative to the active worktree.                                                             |
+| `mode`             | `append`                                                     | Append instructions to OpenCode's default prompt, or use `replace` to provide a complete prompt.           |
+| `prompt`           | "" (empty)                                                   | Additional instructions used together with `memoryFile`; both are included in the compaction instructions. |
+| `completionMarker` | `opencode-plugin-compaction-prompt: Custom compaction done.` | Exact text the model is asked to append at the end of the summary.                                         |
 
 Append mode is the recommended default because it preserves OpenCode's built-in compaction behavior. Replace mode is available when the complete prompt needs to be controlled by this plugin.
+
+When neither a prompt nor a memory file is available, the plugin adds `opencode-plugin-compaction-prompt: No custom compaction applied.` instead.
 
 ## Development
 
