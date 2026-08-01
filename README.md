@@ -2,6 +2,8 @@
 
 Customize OpenCode's compaction prompt to guide which context carries forward, which details are omitted, and what the next session should retain.
 
+[GitHub](https://github.com/bendtherules/opencode-plugin-compaction-prompt) · [npm](https://www.npmjs.com/package/opencode-plugin-compaction-prompt)
+
 ## Install
 
 ```bash
@@ -50,6 +52,21 @@ bun run pack:check
 ```
 
 The npm package exposes the compiled entrypoint at `dist/index.js` and TypeScript declarations at `dist/index.d.ts`.
+
+## Publishing
+
+Before publishing a release:
+
+```bash
+bun run format:check
+bun test
+bun run typecheck
+bun run build
+bun run pack:check
+npm publish
+```
+
+Update the version in `package.json` before each release. `npm publish` rebuilds `dist/` automatically.
 
 ## Compatibility
 
