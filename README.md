@@ -2,6 +2,12 @@
 
 Customize OpenCode's compaction prompt - decide which messages are prioritized/discarded in the next session.
 
+**Compact fearlessly with priority-aware compaction.**
+
+When you work across multiple features, OpenCode's default compaction doesn't know how to distinguish active work from older discussions, so it gives them equal priority. This can make important current details easy to lose.
+
+This plugin enables priority-aware compaction, giving you more control and confidence when manually compacting a session. Specify which discussions to discard and which decisions, files, and snippets to prioritize in the summary.
+
 [GitHub](https://github.com/bendtherules/opencode-plugin-compaction-prompt) · [npm](https://www.npmjs.com/package/opencode-plugin-compaction-prompt)
 
 ## Install
@@ -55,7 +61,11 @@ The npm package exposes the compiled entrypoint at `dist/index.js` and TypeScrip
 
 ## Publishing
 
-Before publishing a release:
+### Update the changelog
+
+Add the changes for the new version to `CHANGELOG.md`.
+
+### Verify the release
 
 ```bash
 bun run format:check
@@ -63,14 +73,19 @@ bun test
 bun run typecheck
 bun run build
 bun run pack:check
+```
+
+### Publish the release
+
+```bash
+npm version minor -m "chore: release v%s"
+git push origin main --follow-tags
 VERSION="$(node -p "require('./package.json').version")"
-git tag "v$VERSION"
-git push origin "v$VERSION"
 gh release create "v$VERSION" --generate-notes
 npm publish
 ```
 
-Update the version in `package.json`, changelog, and the tag before each release. `npm publish` rebuilds `dist/` automatically.
+Use `npm version patch` or `npm version major` when appropriate. `npm publish` rebuilds `dist/` automatically.
 
 ## Compatibility
 
