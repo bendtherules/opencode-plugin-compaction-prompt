@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.4
+
+- Normalize npm package repository metadata.
+
 ## 0.2.3
 
 - Always ask the model to report whether custom compaction instructions were applied.
