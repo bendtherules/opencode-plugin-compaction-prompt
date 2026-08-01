@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bendtherules/opencode-plugin-compaction-prompt.git"
+    "url": "git+https://github.com/bendtherules/opencode-plugin-compaction-prompt.git"
   },
   "homepage": "https://github.com/bendtherules/opencode-plugin-compaction-prompt#readme",
   "bugs": {
