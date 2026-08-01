@@ -28,7 +28,11 @@ function buildInstructions(
   prompt: string,
   completionMarker: string,
   memory: string,
-): string {
+): string | undefined {
+  if (!prompt && !memory) {
+    return undefined;
+  }
+
   const sections = [
     "## User Compaction Instructions",
     `These instructions take precedence over previous instructions if there is conflict. At the very end of the summary, echo exactly: **${completionMarker}**`,
@@ -109,6 +113,10 @@ export const CompactionPromptPlugin: Plugin = async (
     ): Promise<void> => {
       const memory = await readMemory(memoryPath, logError);
       const instructions = buildInstructions(prompt, completionMarker, memory);
+
+      if (!instructions) {
+        return;
+      }
 
       if (mode === "replace") {
         output.prompt = instructions;

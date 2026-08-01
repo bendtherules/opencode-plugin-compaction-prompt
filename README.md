@@ -36,7 +36,7 @@ Create `.opencode/compaction.md` in the project when you have project-specific c
 | ------------------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
 | `memoryFile`       | `.opencode/compaction.md`            | File resolved relative to the active worktree.                                                             |
 | `mode`             | `append`                             | Append instructions to OpenCode's default prompt, or use `replace` to provide a complete prompt.           |
-| `prompt`           | Built-in preservation prompt         | Additional instructions used together with `memoryFile`; both are included in the compaction instructions. |
+| `prompt`           | "" (empty)                           | Additional instructions used together with `memoryFile`; both are included in the compaction instructions. |
 | `completionMarker` | `Custom compaction request honored.` | Exact text the model is asked to append at the end of the summary.                                         |
 
 Append mode is the recommended default because it preserves OpenCode's built-in compaction behavior. Replace mode is available when the complete prompt needs to be controlled by this plugin.

@@ -1,6 +1,6 @@
 {
   "name": "opencode-plugin-compaction-prompt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Customize OpenCode's compaction prompt to preserve important context and omit unnecessary details.",
   "type": "module",
   "repository": {

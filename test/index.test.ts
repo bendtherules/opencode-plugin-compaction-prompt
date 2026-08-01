@@ -114,7 +114,23 @@ describe("CompactionPromptPlugin", () => {
     );
 
     expect(context.logs).toHaveLength(0);
-    expect(output.context).toHaveLength(1);
+    expect(output.context).toHaveLength(0);
+  });
+
+  test("does not modify compaction when no instructions are provided", async () => {
+    const context = await createContext();
+    const hooks = await CompactionPromptPlugin(context as never);
+    const output: { context: string[]; prompt?: string } = {
+      context: ["Existing context"],
+    };
+
+    await hooks["experimental.session.compacting"]?.(
+      { sessionID: "test" },
+      output,
+    );
+
+    expect(output.context).toEqual(["Existing context"]);
+    expect(output.prompt).toBeUndefined();
   });
 
   test("logs non-missing memory file errors without failing compaction", async () => {
@@ -131,6 +147,6 @@ describe("CompactionPromptPlugin", () => {
     );
 
     expect(context.logs).toHaveLength(1);
-    expect(output.context).toHaveLength(1);
+    expect(output.context).toHaveLength(0);
   });
 });
