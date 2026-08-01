@@ -1,6 +1,6 @@
 # opencode-plugin-compaction-prompt
 
-Customize OpenCode's compaction prompt to guide which context carries forward, which details are omitted, and what the next session should retain.
+Customize OpenCode's compaction prompt to decide which messages are prioritized and which are discarded in the next session.
 
 [GitHub](https://github.com/bendtherules/opencode-plugin-compaction-prompt) · [npm](https://www.npmjs.com/package/opencode-plugin-compaction-prompt)
 
