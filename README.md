@@ -63,9 +63,10 @@ bun test
 bun run typecheck
 bun run build
 bun run pack:check
-git tag v0.1.2
-git push origin v0.1.2
-gh release create v0.1.2 --generate-notes
+VERSION="$(node -p "require('./package.json').version")"
+git tag "v$VERSION"
+git push origin "v$VERSION"
+gh release create "v$VERSION" --generate-notes
 npm publish
 ```
 
