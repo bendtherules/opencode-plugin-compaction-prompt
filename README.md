@@ -11,10 +11,12 @@ Customize OpenCode's compaction prompt for priority-aware compaction, deciding w
 ## Install
 
 ```bash
-opencode plugin opencode-plugin-compaction-prompt
+opencode plugin -g opencode-plugin-compaction-prompt
 ```
 
-Or add it to `opencode.json` manually:
+This installs the plugin in your global OpenCode configuration. To install it for one project only, omit `-g`.
+
+You can also add it manually to your global `opencode.jsonc`:
 
 ```json
 {
