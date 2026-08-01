@@ -1,12 +1,10 @@
 # opencode-plugin-compaction-prompt
 
-Customize OpenCode's compaction prompt - decide which messages are prioritized/discarded in the next session.
-
 **Compact fearlessly with priority-aware compaction.**
 
 When you work across multiple features, OpenCode's default compaction doesn't know how to distinguish active work from older discussions, so it gives them equal priority. This can make important current details easy to lose.
 
-This plugin enables priority-aware compaction, giving you more control and confidence when manually compacting a session. Specify which discussions to discard and which decisions, files, and snippets to prioritize in the summary.
+Customize OpenCode's compaction prompt for priority-aware compaction, deciding which messages are prioritized or discarded in the next session. Specify which discussions to discard and which decisions, files, and snippets to prioritize in the summary.
 
 [GitHub](https://github.com/bendtherules/opencode-plugin-compaction-prompt) · [npm](https://www.npmjs.com/package/opencode-plugin-compaction-prompt)
 
