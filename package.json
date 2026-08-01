@@ -1,0 +1,45 @@
+{
+  "name": "opencode-plugin-compaction-prompt",
+  "version": "0.1.0",
+  "description": "Customize OpenCode's compaction prompt to preserve important context and omit unnecessary details.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target bun --format esm --sourcemap=external && tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "bun run build",
+    "format": "prettier --write src test *.json examples/*.json examples/*.md README.md",
+    "format:check": "prettier --check src test *.json examples/*.json examples/*.md README.md"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.18.10",
+    "@types/bun": "^1.3.14",
+    "@types/node": "^25.6.0",
+    "prettier": "^3.6.2",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "bun": ">=1.3.0"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "compaction",
+    "context"
+  ],
+  "license": "MIT"
+}

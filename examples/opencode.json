@@ -1,0 +1,14 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    [
+      "opencode-plugin-compaction-prompt",
+      {
+        "memoryFile": ".opencode/compaction.md",
+        "mode": "append",
+        "prompt": "<Example prompt for compaction>",
+        "completionMarker": "Custom compaction request honored."
+      }
+    ]
+  ]
+}
