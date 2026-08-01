@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+- Always ask the model to report whether custom compaction instructions were applied.
+
 ## 0.2.2
 
 - Add explicit markers for applied and skipped custom compaction instructions.

@@ -116,9 +116,9 @@ describe("CompactionPromptPlugin", () => {
     );
 
     expect(context.logs).toHaveLength(0);
-    expect(output.context).toEqual([
-      "opencode-plugin-compaction-prompt: No custom compaction applied.",
-    ]);
+    expect(output.context[0]).toContain(
+      "echo exactly: **opencode-plugin-compaction-prompt: No custom compaction applied.**",
+    );
   });
 
   test("adds a skipped marker when no instructions are provided", async () => {
@@ -133,10 +133,10 @@ describe("CompactionPromptPlugin", () => {
       output,
     );
 
-    expect(output.context).toEqual([
-      "Existing context",
-      "opencode-plugin-compaction-prompt: No custom compaction applied.",
-    ]);
+    expect(output.context[0]).toBe("Existing context");
+    expect(output.context[1]).toContain(
+      "echo exactly: **opencode-plugin-compaction-prompt: No custom compaction applied.**",
+    );
     expect(output.prompt).toBeUndefined();
   });
 
@@ -154,8 +154,8 @@ describe("CompactionPromptPlugin", () => {
     );
 
     expect(context.logs).toHaveLength(1);
-    expect(output.context).toEqual([
-      "opencode-plugin-compaction-prompt: No custom compaction applied.",
-    ]);
+    expect(output.context[0]).toContain(
+      "echo exactly: **opencode-plugin-compaction-prompt: No custom compaction applied.**",
+    );
   });
 });

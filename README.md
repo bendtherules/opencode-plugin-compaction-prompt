@@ -47,7 +47,7 @@ Create `.opencode/compaction.md` in the project when you have project-specific c
 
 Append mode is the recommended default because it preserves OpenCode's built-in compaction behavior. Replace mode is available when the complete prompt needs to be controlled by this plugin.
 
-When neither a prompt nor a memory file is available, the plugin adds `opencode-plugin-compaction-prompt: No custom compaction applied.` instead.
+When neither a prompt nor a memory file is available, the plugin asks the model to echo `opencode-plugin-compaction-prompt: No custom compaction applied.` instead.
 
 ## Development
 
